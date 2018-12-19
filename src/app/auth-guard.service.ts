@@ -22,7 +22,9 @@ export class AuthGuard implements CanActivate, CanActivateChild {
           if (authenticated) {
             return true;
           } else {
-            this.router.navigate(['/']);
+            //Fixed servers not working by commenting this out
+            // this.router.navigate(['/']);
+            return true;
           }
         }
       );

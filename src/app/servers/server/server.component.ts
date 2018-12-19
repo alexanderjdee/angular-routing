@@ -15,10 +15,6 @@ export class ServerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.data.subscribe((data: Data) => {
-        this.server = data['server'];
-      }
-    );
     // const id = +this.route.snapshot.params['id'];
     // this.server = this.serversService.getServer(id);
     // this.route.params
@@ -27,6 +23,12 @@ export class ServerComponent implements OnInit {
     //       this.server = this.serversService.getServer(+params['id']);
     //     }
     //   );
+
+    //Uses resolver in case this is asynchronous
+    this.route.data.subscribe((data: Data) => {
+        this.server = data['server'];
+      }
+    );
   }
 
   onEdit() {

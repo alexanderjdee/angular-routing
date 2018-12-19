@@ -18,6 +18,7 @@ const appRoutes: Routes = [
   { path: 'users', component: UsersComponent, children: [{ path: ':id/:name', component: UserComponent }] },
   {
     path: 'servers',
+    //This would guard the servers tab. canActiveChild guards the individual server buttons
     // canActivate: [AuthGuard],
     canActivateChild: [AuthGuard],
     component: ServersComponent,
@@ -32,8 +33,10 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [
-    // RouterModule.forRoot(appRoutes, {useHash: true})
     RouterModule.forRoot(appRoutes)
+
+    //Hash routing
+    // RouterModule.forRoot(appRoutes, {useHash: true})
   ],
   exports: [RouterModule]
 })
